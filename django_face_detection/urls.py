@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import index
+from detections.views import video_feed
 
 urlpatterns = [
+    path('', index),
     path('admin/', admin.site.urls),
+    path('video_feed', video_feed, name="video_feed")
 ]
