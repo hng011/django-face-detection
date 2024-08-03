@@ -45,4 +45,5 @@ RUN pipenv install --skip-lock --system --dev
 EXPOSE 8888
 
 # instruction that the command below should be run when the container starts
-CMD gunicorn django_face_detection.wsgi:application --bind 0.0.0.0:$PORT
+# CMD gunicorn django_face_detection.wsgi:application --bind 0.0.0.0:$PORT
+CMD python3 manage.py runserver $PORT

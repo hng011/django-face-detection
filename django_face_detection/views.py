@@ -1,4 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.template.loader import render_to_string
 
 def index(req):
-    return render(req, "index.html", {})
+
+    context = {"cam_start": req.session.get("cam_start")}
+    content = render_to_string("index.html", context)
+    
+    return HttpResponse(content)

@@ -1,5 +1,4 @@
 import cv2
-import cv2.data
 
 class Camera():
     model = "haarcascade_frontalface_default.xml"
@@ -9,6 +8,7 @@ class Camera():
         self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + self.model)
     
     def __del__(self) -> None:
+        
         self.video.release()
         
     def get_frame(self) -> bytes:

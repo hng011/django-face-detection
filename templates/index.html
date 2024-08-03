@@ -7,8 +7,20 @@
 </head>
 <body>
     <center>
+
         <h1>FACE DETECTION</h1>
+
+        {% if cam_start %}
         <img src="{% url 'video_feed' %}" alt="cam">
+        <form method="get" action="{% url 'stop_cam' %}">    
+            <button type="stop">Stop CAM</button>
+        </form>
+        {% else %}
+        <form method="get" action="{% url 'start_cam' %}">
+            <button type="submit">Start CAM</button>
+        </form>
+        {% endif %}
+            
     </center>
 </body>
 </html>
