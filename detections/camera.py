@@ -12,7 +12,7 @@ class Camera():
         self.video.release()
         
     def get_frame(self) -> bytes:
-        s, img = self.video.read()
+        _, img = self.video.read()
         img = cv2.flip(img, 1)
         faces = self.face_cascade.detectMultiScale(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), 1.1 , 4)
         

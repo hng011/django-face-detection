@@ -20,6 +20,12 @@ ENV PORT 8888
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	tzdata \
+	libopencv-dev \
+	build-essential \
+	libssl-dev \
+	libpq-dev \
+	libcurl4-gnutls-dev \
+	libexpat1-dev \
 	python3-setuptools \
 	python3-pip \
 	python3-dev \
@@ -38,5 +44,5 @@ RUN pipenv install --skip-lock --system --dev
 
 EXPOSE 8888
 
-# instruction that the command below should be run when the container stars
+# instruction that the command below should be run when the container starts
 CMD gunicorn django_face_detection.wsgi:application --bind 0.0.0.0:$PORT
